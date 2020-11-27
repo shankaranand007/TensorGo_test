@@ -5,9 +5,6 @@ const output = require('../helper/api');
 const userModel = require('../model/user.model');
 const moment = require('moment');
 
-// import { ExportToCsv } from 'export-to-csv';
-// import user from '../router/routes.user';
-
 class UserController {
     constructor(con) {
         this.config = con;
@@ -20,13 +17,13 @@ class UserController {
         try {
             new Promise((resolve, reject) => {
                 userModel.find()
-                    .exec((err, data=Array) => {
+                    .exec((err, data = Array) => {
                         if (err) reject(output.invalid(req, res, err))
                         else {
 
                             // let csvContent = "data:text/csv;charset=utf-8,";
                             let csvContent = "data:text/csv;charset=utf-8,"
-                                + data.map(e =>e+',').join("\n");
+                                + data.map(e => e + ',').join("\n");
                             // data.forEach(function(rowArray) {
                             //     let row = rowArray.join(",");
                             //     csvContent += row + "\r\n";
@@ -42,7 +39,7 @@ class UserController {
     addUser() {
         var options = {
             uri: 'https://gorest.co.in/public-api/users',
-            json: true // Automatically parses the JSON string in the response
+            json: true 
         };
 
         var rp = require('request-promise');
@@ -55,7 +52,6 @@ class UserController {
                     })
             })
             .catch(function (err) {
-                // Crawling failed...
             });
     }
     getUser(req, res) {

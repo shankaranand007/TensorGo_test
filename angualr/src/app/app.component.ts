@@ -8,32 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'kgisl';
+  title = 'Test';
 
 
     constructor(private router: Router) {
     }
-
-    // public initUserForm() {
-    //     this.user = this.form.group({
-    //         username: ['', Validators.required],
-    //         password: ['', Validators.required]
-    //     });
-    //     this.isValidUser = true;
-    // }
-
-    // public login() {
-    //     this.routePath = this.route.snapshot.routeConfig.path;
-    //     const data = this.user.value;
-    //     this.loginService.authenticate(data).subscribe(
-    //         res => {
-    //             this.successLogin(res);
-    //         },
-    //         err => {
-    //             this.failureLogin(err);
-    //         }
-    //     );
-    // }
 
     private successLogin(res) {
         this.router.navigateByUrl('/home');
